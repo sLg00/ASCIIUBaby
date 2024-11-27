@@ -11,8 +11,9 @@ To clean-up after build and test, run 'make clean' in the project directory.
 #### Use
 The application takes 3 command line arguments:
 
-* -i <input_file>
-* -o <output_file>
-* -s <scale...1-100>
+* -i input_file
+* -o output_file
+* -s output file scale, 1-100
 
 More weapons coming soon.
+
