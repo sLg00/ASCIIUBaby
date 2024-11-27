@@ -15,5 +15,4 @@ The application takes 3 command line arguments:
 * -o output_file
 * -s output file scale, 1-100
 
-More weapons coming soon.
-
+More weapons coming soon (including unit tests).
