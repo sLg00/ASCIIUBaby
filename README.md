@@ -18,4 +18,5 @@ The application takes 3 command line arguments:
 More weapons coming soon (including unit tests).
 
 ##### Note
-Latest binary version also included in the bin directory just in case
+1. Latest binary version also included in the bin directory just in case
+2. Only tested on Linux atm
