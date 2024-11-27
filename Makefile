@@ -9,6 +9,7 @@ INCLUDE_DIR := include
 OBJ_DIR := obj
 BIN_DIR := bin
 TEST_DIR := test
+SCALE := 50
 
 # Binary name
 TARGET := $(BIN_DIR)/ascii_u_baby
@@ -39,7 +40,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 # Test target
 test: $(TARGET)
 	@echo "Running test..."
-	$(TARGET) -i $(TEST_INPUT) -o $(TEST_OUTPUT) -s 25
+	$(TARGET) -i $(TEST_INPUT) -o $(TEST_OUTPUT) -s $(SCALE)
 	@echo "Test complete. ASCII art saved to: $(TEST_OUTPUT)"
 
 # Clean target
