@@ -16,3 +16,6 @@ The application takes 3 command line arguments:
 * -s output file scale, 1-100
 
 More weapons coming soon (including unit tests).
+
+##### Note
+Latest binary version also included in the bin directory just in case
