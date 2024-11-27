@@ -7,17 +7,20 @@
 // ascii chars from darkest to lightest
 const char *ascii_characters = "@%#*+=-:. ";
 
-void convert_to_ascii(const Image *img, const char *output_path){
+void convert_to_ascii(const Image *img, const char *output_path, int scale){
     FILE *output_file = fopen(output_path, "w");
     if(!output_file){
         fprintf(stderr, "Failed to open output file: %s\n", output_path);
         return;
     }
 
+    //scale dimensions
+    int scaled_width = (img->width * scale) / 100;
+    int scaled_height = (img->height * scale) / 100;
+
     //scale image so it would look proportionate as an ascii representation
     const double aspect_ratio = 2.0;
-    int scaled_width = img->width;
-    int scaled_height = (int)(img->height / aspect_ratio);
+    scaled_height = (int)(scaled_height/ aspect_ratio);
 
     /*Loop through scaled dimensions of the image.
     Outer loop - vertical pixels, inner loop - horizontal pixels (hence the y, x notation for variables).
@@ -31,8 +34,8 @@ void convert_to_ascii(const Image *img, const char *output_path){
     for(int y=0; y<scaled_height; y++){
         for(int x=0; x < scaled_width; x++){
 
-           int original_y = (int)(y * aspect_ratio);
-           int original_x = x;
+           int original_y = (y * img->height) / scaled_height;
+           int original_x = (x * img->width) / scaled_width;
 
            int index = (original_y * img->width + original_x) * 4;
            unsigned char r = img->data[index];
