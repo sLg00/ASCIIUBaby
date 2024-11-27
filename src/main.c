@@ -2,6 +2,7 @@
 #include <getopt.h>
 
 #include "image_loader.h"
+#include "ascii_u.h"
 
 void print_usage(char *argv[]) {
     printf("Usage: %s -i <png_file> -o <ascii_file>\n", argv[0]);

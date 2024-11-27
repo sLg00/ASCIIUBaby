@@ -58,8 +58,8 @@ Image *load_png(const char *file_path){
 
     //set up row pointers for libpng to utilize
     png_bytep *row_pointers =  (png_bytep *)malloc(sizeof (png_bytep) * height);
-    for(int y = 0; y < height; y++){
-        row_pointers[y] = data + y * png_get_rowbytes(png, info);
+    for(int i = 0; i < height; i++){
+        row_pointers[i] = data + i * png_get_rowbytes(png, info);
     }
 
     //read image data into the data buffer
