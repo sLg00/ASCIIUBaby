@@ -3,6 +3,6 @@
 
 #include "image_loader.h"
 
-void convert_to_ascii(const Image *img, const char *output_path, int scale);
+void convert_to_ascii(const Image *img, const char *output_path, int target_height);
 
 #endif
