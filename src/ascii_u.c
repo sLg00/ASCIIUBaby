@@ -15,7 +15,7 @@ void convert_to_ascii(const Image *img, const char *output_path, int target_heig
     }
 
     //scale image so it would look proportionate as an ascii representation
-    const double aspect_ratio = 2.0;
+    const double aspect_ratio = 2.2;
     int scaled_height = target_height > 0 ? target_height : img->height;
     int scaled_width = (int)(img->width * (target_height * aspect_ratio) / img->height);
 
