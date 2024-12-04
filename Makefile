@@ -8,11 +8,15 @@ SRC_DIR := src
 INCLUDE_DIR := include
 OBJ_DIR := obj
 BIN_DIR := bin
-TEST_DIR := test
+TEST_DIR := tests
 SCALE := 50
 
-# Binary name
+# Final binary
 TARGET := $(BIN_DIR)/ascii_u_baby
+
+# Testing binaries
+UNIT_TEST_BIN := $(BIN_DIR)/unit_tests
+INT_TEST_BIN := $(BIN_DIR)/integration_tests
 
 # Source and object files
 SRCS := $(wildcard $(SRC_DIR)/*.c)
@@ -37,16 +41,28 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiled: $< -> $@"
 
-# Test target
-test: $(TARGET)
-	@echo "Running test..."
-	$(TARGET) -i $(TEST_INPUT) -o $(TEST_OUTPUT) -s $(SCALE)
-	@echo "Test complete. ASCII art saved to: $(TEST_OUTPUT)"
+# Test targets
+test_unit: $(UNIT_TEST_BIN)
+	@echo "Running unit tests..."
+	$(UNIT_TEST_BIN)
+
+test_integration: $(INT_TEST_BIN)
+	@echo "Running integration tests..."
+	$(INT_TEST_BIN)
+
+$(UNIT_TEST_BIN): $(TEST_DIR)/test_main.c $(filter-out $(SRC_DIR)/main.c, $(SRCS))
+	@mkdir -p $(BIN_DIR)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+$(INT_TEST_BIN): $(TEST_DIR)/test_integration.c $(filter-out $(SRC_DIR)/main.c, $(SRCS))
+	@mkdir -p $(BIN_DIR)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Clean target
 clean:
-	@rm -rf $(OBJ_DIR) $(BIN_DIR) $(TEST_OUTPUT)
+	@rm -rf $(OBJ_DIR) $(BIN_DIR)
+	@rm -f $(TEST_DIR)/output_ascii.txt
 	@echo "Cleaned build and test files."
 
 # Phony targets
-.PHONY: all clean test
+.PHONY: all clean test test_unit test_integration

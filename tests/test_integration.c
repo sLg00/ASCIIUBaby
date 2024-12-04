@@ -30,24 +30,24 @@ int compare_files(const char *file1, const char *file2){
 }
 
 int main() {
-    const char *input_image = "test/test_image.png";
-    const char *output_file = "test/output_ascii.txt";
+    //const char *input_image = "tests/test_image.png";
+    const char *output_file = "tests/output_ascii.txt";
 
-    const char *expected_ascii_30 = "test/expected_ascii_30.txt";
-    system("./bin/ascii_u -i tests/test_image.png -o tests/output_ascii.txt -h 30");
+    const char *expected_ascii_30 = "tests/expected_ascii.txt";
+   system("./bin/ascii_u_baby -i tests/test_image.png -o tests/output_ascii.txt -s 30");
     if(compare_files(output_file, expected_ascii_30)){
-        printf("Integration test (Height is 30) passed\n");
+        printf("Integration tests (Height is 30) passed\n");
     } else {
-        printf("Integration test (Height is 30) failed - file contents do not match\n");
+        printf("Integration tests (Height is 30) failed - file contents do not match\n");
         return 1;
     }
 
-    const char *golden_ascii_50 = "test/golden_ascii_50.txt";
-    system("./bin/ascii_u -i tests/test_image.png -o tests/output_ascii.txt -h 50");
+    const char *golden_ascii_50 = "tests/golden_ascii_50.txt";
+    system("./bin/ascii_u_baby -i tests/test_image.png -o tests/output_ascii.txt -s 50");
     if(compare_files(output_file, golden_ascii_50)){
-        printf("Integration test (Height is 50) passed\n");
+        printf("Integration tests (Height is 50) passed\n");
     } else {
-        printf("Integration test (Height is 50) failed - file contents do not match\n");
+        printf("Integration tests (Height is 50) failed - file contents do not match\n");
         return 1;
     }
 
