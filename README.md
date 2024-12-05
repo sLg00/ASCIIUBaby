@@ -2,6 +2,7 @@
 
 **ASCIIUBaby** is a simple C application that converts images to ASCII art.
 Currently only PNG files are supported (using libpng).
+The only purpose for its existence is an unhealthy late-in-life curiosity towards C.
 
 #### Build
 * To build, run 'make' in the project directory.
