@@ -1,7 +1,7 @@
 # Compiler and flags
 CC := gcc
-CFLAGS := -Wall -Wextra -Iinclude -g
-LDFLAGS := -lpng
+CFLAGS := -I/opt/homebrew/opt/libpng/include/libpng16 -Wall -Wextra -Iinclude -g
+LDFLAGS := -lpng -L/opt/homebrew/opt/libpng/lib -lpng16
 
 # Directory structure
 SRC_DIR := src

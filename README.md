@@ -11,6 +11,8 @@ The only purpose for its existence is an unhealthy late-in-life curiosity toward
 * To run integration tests, run 'make test-integration' in the project directory.
 * To clean-up after build and test, run 'make clean' in the project directory.
 
+For MacOS, you may install `libpng` using Homebrew.
+
 #### Use
 The application takes 4 command line arguments:
 
