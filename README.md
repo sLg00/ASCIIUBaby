@@ -24,5 +24,5 @@ The application takes 4 command line arguments:
 
 
 ##### Notes
-1. Only tested on Linux atm
+1. Tested on Linux & MacOS
 2. JPEG support next
